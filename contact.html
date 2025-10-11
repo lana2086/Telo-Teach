@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Telo Tech</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="assets/logo.jpeg.jpg" alt="Telo Tech Logo" class="logo">
+        <span class="brand">Telo Tech</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="upload.html">Upload</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Hero -->
+  <section class="contact-hero">
+    <h1>Get in Touch</h1>
+    <p>Let’s build something extraordinary together. Contact our team today for inquiries, quotes, or partnerships.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-container">
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <p>Reach out to us through any of the channels below.</p>
+      <div class="info-item"><span>📍</span><p>123 Innovation Street, Tech City</p></div>
+      <div class="info-item"><span>📧</span><p>support@telotech.com</p></div>
+      <div class="info-item"><span>📞</span><p>+962 555-2345</p></div>
+      <div class="info-item"><span>⏰</span><p>Sun - Thu: 9:00 AM - 6:00 PM</p></div>
+      <div class="socials">
+        <a href="#">🌐</a>
+        <a href="#">💼</a>
+        <a href="#">🐦</a>
+        <a href="#">📸</a>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form id="contactForm">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <h2>Find Us</h2>
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.95592331531686!3d-37.81720997975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f3e31f8b%3A0x5045675218ceed0!2sTech%20City!5e0!3m2!1sen!2sus!4v1672528888888"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Telo Tech. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Success Toast -->
+  <div id="toast">✅ Message Sent Successfully!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
