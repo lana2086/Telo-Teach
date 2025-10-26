@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Telo Tech | Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #d1c4e9;
+      overflow: hidden;
+    }
+
+    /* Animated background */
+    .bg-anim {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .orb {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(183,110,255,0.6), rgba(183,110,255,0));
+      animation: float 10s infinite ease-in-out alternate;
+      filter: blur(40px);
+      opacity: 0.4;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-60px) translateX(30px) scale(1.1); }
+      100% { transform: translateY(40px) translateX(-20px) scale(1); }
+    }
+
+    .signup-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      z-index: 2;
+      position: relative;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .signup-card {
+      width: 400px;
+      background: linear-gradient(145deg, #1f1f1f, #121212);
+      border: 1px solid rgba(183,110,255,0.2);
+      box-shadow: 0 0 25px rgba(183,110,255,0.2);
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      animation: fadeIn 1.2s ease forwards;
+      position: relative;
+      z-index: 3;
+      backdrop-filter: blur(6px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .signup-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 2px solid rgba(183,110,255,0.4);
+      padding: 3px;
+    }
+
+    .brand {
+      font-size: 28px;
+      font-weight: bold;
+      color: #b76eff;
+      margin-bottom: 10px;
+    }
+
+    .signup-card h2 {
+      color: #b76eff;
+      margin-bottom: 15px;
+    }
+
+    .signup-card p {
+      color: #bdbdbd;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background: #2c2c2c;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      border: 1px solid #b76eff;
+      box-shadow: 0 0 8px rgba(183,110,255,0.3);
+    }
+
+    button {
+      background: linear-gradient(90deg, #6a1b9a, #b76eff);
+      border: none;
+      color: #fff;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #8e24aa, #d39cff);
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(183,110,255,0.4);
+    }
+
+    a {
+      color: #b76eff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Back button */
+    .back-btn {
+      margin-top: 25px;
+      padding: 10px 28px;
+      background: linear-gradient(90deg, #6a1b9a, #b76eff);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(183,110,255,0.25);
+    }
+
+    .back-btn:hover {
+      background: linear-gradient(90deg, #8e24aa, #d39cff);
+      box-shadow: 0 0 25px rgba(183,110,255,0.5);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 480px) {
+      .signup-card {
+        width: 90%;
+        padding: 30px 20px;
+      }
+      .brand { font-size: 24px; }
+      .signup-card h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating background orbs -->
+  <div class="bg-anim">
+    <div class="orb" style="top:20%; left:15%; animation-delay:0s;"></div>
+    <div class="orb" style="top:70%; left:60%; animation-delay:2s; width:120px; height:120px;"></div>
+    <div class="orb" style="top:40%; left:80%; animation-delay:4s; width:90px; height:90px;"></div>
+  </div>
+
+  <div class="signup-container">
+    <div class="signup-card">
+      <img src="assets/logo.jpeg.jpg" alt="Telo Tech Logo" class="signup-logo">
+      <div class="brand">Telo Tech</div>
+      <h2>Create Account</h2>
+      <p>Join the Telo Tech community today</p>
+
+      <form method="POST" action="/php/signup.php">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <p style="margin-top:15px;">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <!-- Back to Home button -->
+    <div style="text-align: center; margin-top: 20px;">
+      <button class="back-btn" onclick="window.location.href='index.html'">← Back to Home</button>
+    </div>
+  </div>
+
+</body>
+</html>

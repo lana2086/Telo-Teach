@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telo Tech | Upload</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #d1c4e9;
+      overflow-x: hidden;
+    }
+
+    /* Animated background */
+    .bg-anim {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .orb {
+      position: absolute;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(183,110,255,0.6), rgba(183,110,255,0));
+      animation: float 10s infinite ease-in-out alternate;
+      filter: blur(40px);
+      opacity: 0.4;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-60px) translateX(30px) scale(1.1); }
+      100% { transform: translateY(40px) translateX(-20px) scale(1); }
+    }
+
+    /* Main container */
+    .upload-container {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .brand {
+      font-size: 32px;
+      font-weight: bold;
+      color: #b76eff;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #b76eff;
+      margin-bottom: 25px;
+    }
+
+    /* Upload form */
+    form {
+      background: #1f1f1f;
+      border-radius: 15px;
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 450px;
+      box-shadow: 0 0 25px rgba(183,110,255,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      transition: all 0.3s ease;
+    }
+
+    form:hover {
+      box-shadow: 0 0 35px rgba(183,110,255,0.3);
+    }
+
+    input[type="file"] {
+      padding: 12px;
+      border: 2px dashed #6a1b9a;
+      background: #2c2c2c;
+      color: #d1c4e9;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 15px;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="file"]:hover {
+      border-color: #b76eff;
+    }
+
+    button {
+      background: linear-gradient(90deg, #6a1b9a, #b76eff);
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #8e24aa, #d39cff);
+      box-shadow: 0 0 15px rgba(183,110,255,0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Back button */
+    .back-btn {
+      margin-top: 25px;
+      padding: 10px 25px;
+      background: linear-gradient(90deg, #6a1b9a, #b76eff);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(183,110,255,0.25);
+    }
+
+    .back-btn:hover {
+      background: linear-gradient(90deg, #8e24aa, #d39cff);
+      box-shadow: 0 0 25px rgba(183,110,255,0.5);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 480px) {
+      .brand { font-size: 24px; }
+      form { padding: 25px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated background -->
+  <div class="bg-anim">
+    <div class="orb" style="top:20%; left:15%; animation-delay:0s;"></div>
+    <div class="orb" style="top:70%; left:60%; animation-delay:2s; width:120px; height:120px;"></div>
+    <div class="orb" style="top:40%; left:80%; animation-delay:4s; width:90px; height:90px;"></div>
+  </div>
+
+  <div class="upload-container">
+    <div class="brand">Telo Tech</div>
+    <h2>Upload Your File</h2>
+
+    <form action="php/upload.php" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" required>
+      <button type="submit">Upload File</button>
+    </form>
+
+      <div style="text-align: center; margin-top: 20px;">
+  <button class="back-btn" onclick="window.location.href='index.html'">← Back to Home</button>
+</div>
+
+</body>
+</html>

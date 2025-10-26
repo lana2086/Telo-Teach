@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telo Tech | Search</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #d1c4e9;
+      overflow: hidden;
+    }
+
+    /* Animated background */
+    .bg-anim {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .orb {
+      position: absolute;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(183,110,255,0.6), rgba(183,110,255,0));
+      animation: float 10s infinite ease-in-out alternate;
+      filter: blur(40px);
+      opacity: 0.4;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-60px) translateX(30px) scale(1.1); }
+      100% { transform: translateY(40px) translateX(-20px) scale(1); }
+    }
+
+    /* Center container */
+    .search-container {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .brand {
+      font-size: 30px;
+      color: #b76eff;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #b76eff;
+      margin-bottom: 25px;
+    }
+
+    /* Search form */
+    form {
+      width: 90%;
+      max-width: 500px;
+      display: flex;
+      align-items: center;
+      background: #2c2c2c;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(183,110,255,0.1);
+      transition: all 0.3s ease;
+    }
+
+    form:focus-within {
+      box-shadow: 0 0 25px rgba(183,110,255,0.3);
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 14px 20px;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    button {
+      background: linear-gradient(90deg, #6a1b9a, #b76eff);
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #8e24aa, #d39cff);
+      box-shadow: 0 0 15px rgba(183,110,255,0.4);
+      transform: scale(1.03);
+    }
+
+    /* Back to home */
+    .back-btn {
+      margin-top: 30px;
+      padding: 10px 25px;
+      background: linear-gradient(90deg, #6a1b9a, #b76eff);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(183,110,255,0.25);
+    }
+
+    .back-btn:hover {
+      background: linear-gradient(90deg, #8e24aa, #d39cff);
+      box-shadow: 0 0 25px rgba(183,110,255,0.5);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 480px) {
+      .brand { font-size: 24px; }
+      h2 { font-size: 22px; }
+      form { flex-direction: column; border-radius: 15px; }
+      button { border-radius: 0 0 15px 15px; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Animation -->
+  <div class="bg-anim">
+    <div class="orb" style="top:20%; left:15%; animation-delay:0s;"></div>
+    <div class="orb" style="top:70%; left:60%; animation-delay:2s; width:120px; height:120px;"></div>
+    <div class="orb" style="top:40%; left:80%; animation-delay:4s; width:90px; height:90px;"></div>
+  </div>
+
+  <div class="search-container">
+    <div class="brand">Telo Tech</div>
+    <h2>Search Our Platform</h2>
+
+    <!-- Connected to your PHP -->
+    <form method="GET" action="php/search.php">
+      <input type="text" name="query" placeholder="Type your search..." required>
+      <button type="submit">Search 🔍</button>
+    </form>
+
+    <button class="back-btn" onclick="window.location.href='index.html'">← Back to Home</button>
+  </div>
+
+</body>
+</html>
