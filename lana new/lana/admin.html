@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Telo Tech | Admin</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Page + background */
+    :root {
+      --accent-1: #6a1b9a;
+      --accent-2: #b76eff;
+      --card-bg: linear-gradient(145deg,#1f1f1f,#121212);
+      --glass: rgba(255,255,255,0.03);
+    }
+    html,body { height:100%; margin:0; font-family:Arial, sans-serif; background:#0d0d0d; color:#d1c4e9; }
+    .bg-anim {
+      position:fixed; inset:0; z-index:0; overflow:hidden;
+      background: radial-gradient(circle at center, #111 0%, #0b0b0b 100%);
+    }
+    .orb { position:absolute; border-radius:50%; filter:blur(40px); opacity:0.35;
+      background: radial-gradient(circle, rgba(183,110,255,0.6), rgba(183,110,255,0));
+      animation: float 10s infinite ease-in-out alternate;
+    }
+    @keyframes float {
+      0%{ transform: translateY(0) translateX(0) }
+      50%{ transform: translateY(-50px) translateX(30px) }
+      100%{ transform: translateY(30px) translateX(-20px) }
+    }
+
+    /* Layout */
+    .page {
+      position:relative; z-index:2; min-height:100vh;
+      display:flex; flex-direction:column; gap:20px;
+    }
+    header .navbar { position:relative; z-index:3; } /* keep your site navbar styling */
+
+    .admin-wrap {
+      display:flex; align-items:flex-start; gap:40px;
+      padding:40px 60px;
+    }
+
+    /* Form card */
+    .admin-card {
+      width:420px;
+      background: var(--card-bg);
+      border-radius:14px;
+      padding:36px;
+      box-shadow:0 10px 50px rgba(0,0,0,0.6), 0 0 18px rgba(183,110,255,0.06);
+      border:1px solid rgba(183,110,255,0.06);
+      margin-left:12px;
+    }
+    .admin-card .logo {
+      width:72px; height:72px; border-radius:50%; margin:0 auto 12px; display:block;
+      border:2px solid rgba(183,110,255,0.25); padding:4px; background:#0b0b0b;
+    }
+    .admin-card h1{ color:var(--accent-2); text-align:center; margin:6px 0 8px; font-size:22px; }
+    .admin-card p.lead{ color:#bdbdbd; text-align:center; margin-bottom:18px; }
+
+    .field {
+      margin:10px 0;
+    }
+    input[type="text"], input[type="password"] {
+      width:100%;
+      padding:12px 14px;
+      border-radius:8px;
+      border:1px solid rgba(183,110,255,0.08);
+      background:#232323;
+      color:#fff;
+      outline:none;
+      transition: box-shadow .18s, border-color .18s, transform .08s;
+      font-size:14px;
+    }
+    input:focus { border-color: var(--accent-2); box-shadow: 0 0 10px rgba(183,110,255,0.12); }
+
+    .btn {
+      width:100%;
+      padding:12px;
+      margin-top:12px;
+      border-radius:8px;
+      background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      border:none;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(183,110,255,0.22); }
+
+    .small { color:#bdbdbd; font-size:14px; margin-top:10px; text-align:center; }
+
+    /* Compact helpers */
+    .actions { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:8px; }
+
+    /* Back button */
+    .back {
+      margin-top:8px; display:inline-block;
+      padding:8px 18px; border-radius:8px;
+      color:var(--accent-2); border:1px solid rgba(183,110,255,0.12);
+      background:transparent; cursor:pointer; transition:all .18s;
+    }
+    .back:hover { background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); color:#fff; box-shadow:0 8px 20px rgba(183,110,255,0.12); transform:translateY(-2px); }
+
+    /* Responsive */
+    @media (max-width:720px){
+      .admin-wrap { padding:28px 20px; flex-direction:column; align-items:center; }
+      .admin-card { width:100%; max-width:420px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- animated orbs -->
+  <div class="bg-anim">
+    <div class="orb" style="top:18%; left:10%; width:120px; height:120px; animation-delay:0s"></div>
+    <div class="orb" style="top:60%; left:78%; width:160px; height:160px; animation-delay:2s"></div>
+    <div class="orb" style="top:36%; left:55%; width:100px; height:100px; animation-delay:4s"></div>
+  </div>
+
+  <div class="page">
+    <!-- keep your existing navbar above if desired -->
+    <header>
+      <nav class="navbar">
+        <div class="nav-left">
+          <img src="assets/logo.jpeg.jpg" alt="logo" style="height:52px;width:52px;border-radius:50%;margin-left:10px">
+          <span class="brand" style="color:var(--accent-2); font-weight:700; margin-left:12px; font-size:18px;">Telo Tech</span>
+        </div>
+        <ul class="nav-links" style="position:relative; right:6px; top:8px;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="upload.html">Upload</a></li>
+          <li><a href="admin.html" class="active">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="admin-wrap" role="main">
+      <!-- Admin form card -->
+      <section class="admin-card" aria-labelledby="adminTitle">
+        <img src="assets/logo.jpeg.jpg" alt="Telo Tech" class="logo" />
+        <h1 id="adminTitle">Admin</h1>
+        <p class="lead">Sign in with your admin credentials</p>
+
+        <!-- IMPORTANT: action should point to your PHP file (example: admin.php) -->
+        <form method="POST" action="/php/admin.php" novalidate>
+          <div class="field">
+            <input type="text" name="admin_user" placeholder="Admin Username" required />
+          </div>
+
+          <div class="field">
+            <input type="password" name="admin_pass" placeholder="Admin Password" required />
+          </div>
+
+          <button type="submit" class="btn">Login</button>
+
+          <div class="small">Keep your admin credentials safe.</div>
+        </form>
+
+      </section>
+
+      <!-- optional info / tips -->
+      <aside style="max-width:520px; color:#cfcfcf; padding:20px 8px;">
+        <h3 style="color:var(--accent-2); margin:0 0 8px 0;">Admin Panel</h3>
+        <p style="margin:0 0 12px 0; line-height:1.6;">
+          This is the admin login. Use this only for administrative tasks. The form posts to <code>admin.php</code> and the current PHP will validate the credentials.
+        </p>
+
+        <button class="back" onclick="location.href='index.html'">← Back to Home</button>
+      </aside>
+    </main>
+  </div>
+
+</body>
+</html>
